@@ -1,0 +1,41 @@
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+  <link rel="stylesheet" href="/app.css">
+  <title>Newsletter Subscription System</title>
+  <link rel="icon" type="image/png" href="https://img.icons8.com/doodle/48/000000/newsletter.png"/>
+</head>
+
+<body>
+  <form action='/signout'>
+    <button id=bt1>Sign-out</button>
+  </form>
+  <p>Enter the Newsletter ID which you want to subscribe</p>
+  <div>
+  <table class="table table-inverse">
+    <thead>
+      <tr>
+        <th>Newsletter ID</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% for(var i=0; i < data1.length; i++) { %>
+      <tr>
+        <td><%= data1[i].n_id %></td>
+        <td><%= data1[i].name %></td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+  
+      <form method="POST" action='/subscribe'>
+        <input type="int" class="form" name="id2" placeholder="Enter Newsletter ID" required>
+
+        <button type="submit">Subscribe NOW</button>
+        
+      </form>
+      
+  
+</div>
+</body>

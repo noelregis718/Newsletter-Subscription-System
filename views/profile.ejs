@@ -1,0 +1,67 @@
+<head>
+  <title>Newsletter Subscription System</title>
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:100,300,400"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/app.css" />
+  <link rel="icon" type="image/png" href="https://img.icons8.com/doodle/48/000000/newsletter.png"/>
+</head>
+
+<body>
+  <form action='/signout'>
+    <button id=bt1>Sign-out</button>
+  </form>
+  <div>
+    <h1>Welcome <%= data3 %></h1>
+    <p>Your user id is <%= data1[0].u_id %></p>
+
+    <div>
+      <p style="height: auto; color: black">Newsletters</p>
+      <p></p>
+    </div>
+    <table class="table table-inverse">
+      <thead>
+        <tr>
+          <th>Your Subscribed Newsletter Name</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% for(var i=0; i < data4.length; i++) { %>
+        <tr>
+          <td><%= data4[i].name %></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+
+    <div>
+      <p>Available Newsletters</p>
+    </div>
+    <table class="table table-inverse">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% for(var i=0; i < data2.length; i++) { %>
+        <tr>
+          <td><%= data2[i].n_id %></td>
+          <td><%= data2[i].name %></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+
+    <form action="/news">
+      <button type="submit">Subscribe another Newsletter</button>
+    </form>
+    <form action="/unsub">
+      <button type="submit">Unsubscribe Newsletter</button>
+    </form>
+  </div>
+</body>

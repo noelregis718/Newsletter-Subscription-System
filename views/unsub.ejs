@@ -1,0 +1,41 @@
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+  <link rel="stylesheet" href="/app.css">
+  <title>Newsletter Subscription System</title>
+</head>
+
+<body>
+  <form action='/signout'>
+    <button id=bt1>Sign-out</button>
+  </form>
+  <div>
+  <table class="table table-inverse">
+    <thead>
+      <tr>
+        <th>Newsletter ID</th>
+        <th>Name</th>
+        <th>Subscriber Email ID</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% for(var i=0; i < data1.length; i++) { %>
+      <tr>
+        <td><%= data1[i].n_id %></td>
+        <td><%= data1[i].name %></td>
+        <td><%= data1[i].email %></td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+  
+  <form method="POST" action='/unsubsucc'>
+    <input type="int" class="form" name="id2" placeholder="Enter Newsletter ID" required>
+
+    <button type="submit">Unsubscribe NOW</button>
+    
+  </form>
+  
+  
+</div>
+</body>
