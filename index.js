@@ -28,10 +28,10 @@ app.use(express.static(__dirname + "/public"));
 
 
 var connection = mysql.createConnection({
-  host     : 'sql12.freemysqlhosting.net',
-  user     : 'sql12373655',
-  password : '9bEPU5qCad',
-  database : 'sql12373655',
+  host     : process.env.HOST,
+  user     : process.env.USER,
+  password : process.env.PASSWORD,
+  database : process.env.DATABASE,
   multipleStatements: true
 });
 
@@ -221,6 +221,6 @@ else{
 }
  });
 
-app.listen(8080, function () {
- console.log('App listening on port 8080!');
+app.listen(process.env.PORT, function () {
+ console.log('App listening on port 3000!');
 });
