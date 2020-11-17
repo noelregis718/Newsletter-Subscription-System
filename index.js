@@ -1,3 +1,4 @@
+// Importing required libraries
 var express = require('express');
 var session = require('express-session');
 var faker = require('faker');
@@ -7,8 +8,8 @@ var app = express();
 //const bcrypt = require('bcrypt');
 // Can be used for security but not needed right now
 
-
 app.set("view engine", "ejs");
+// For Creating user session
 app.use(session({
 	secret: 'secret',
 	resave: true,
@@ -16,7 +17,7 @@ app.use(session({
 }));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
-
+// For Local Host
 // var connection = mysql.createConnection({
 //   host     : 'localhost',
 //   user     : 'root',
@@ -26,7 +27,7 @@ app.use(express.static(__dirname + "/public"));
 //   multipleStatements: true     
 // });
 
-
+// For Cloud Host
 var connection = mysql.createConnection({
   host     : process.env.HOST,
   user     : process.env.USER,
@@ -36,7 +37,7 @@ var connection = mysql.createConnection({
 });
 
 var userid = null;
-// Fake data
+// For importing Fake data
 // var data = [];
 // for(var i = 0; i < 5; i++){
 //     data.push([
@@ -44,8 +45,6 @@ var userid = null;
 //         faker.internet.password()
 //     ]);
 // }
-
-
 // var q = 'INSERT INTO users (email, password) VALUES ?';
 
 // connection.query(q, [data], function(err, result) {
@@ -56,7 +55,6 @@ var userid = null;
 // connection.end();
 
  app.get("/", function(req, res){
-  // Find count of users in DB
   var q = "SELECT COUNT(*) AS count FROM users";
   connection.query(q, function(err, results){
       if(err) throw err;
@@ -91,7 +89,7 @@ app.post('/auth', function(request, response) {
 app.get('/profile', function(request, response) {
 	if (request.session.loggedin ) {
     
-    connection.query('SELECT * FROM users where email=?; SELECT * FROM newsletters ORDER BY name; Select * from newsletters  join (Select * from users join subscriber on users.u_id = subscriber.user_id )as us on newsletters.n_id=us.news_id where email=?; ',[request.session.username,request.session.username], function(err, results){
+    connection.query('SELECT * FROM users where email=?; SELECT * FROM newsletters ORDER BY n_name; Select * from newsletters  join (Select * from users join subscriber on users.u_id = subscriber.user_id )as us on newsletters.n_id=us.news_id where email=?; ',[request.session.username,request.session.username], function(err, results){
       userid = results[0][0].u_id; 
       if(err) throw err; 
       response.render("profile", {data1: results[0] , data2: results[1] , data3: request.session.username , data4:results[2]});
@@ -188,8 +186,7 @@ app.get("/newsletter", function(req, res){
 
 app.post('/addnews', function(req,res){
   if (req.session.loggedin && req.session.username == "admin") {
-  var person = req.body.name;
-  connection.query("INSERT INTO newsletters (name) VALUES ('"+person+"')" ,function(err, result) {
+  connection.query("INSERT INTO newsletters (n_name,description) VALUES ('"+req.body.n_name+"','"+req.body.description+"')" ,function(err, result) {
   console.log(err);
   console.log(result);
   res.redirect("/db");
@@ -209,7 +206,7 @@ app.post('/subscribe', function(req,res){
 
  app.post('/regi', function(req,res){
    if(req.body.password==req.body.password2){
-  connection.query("INSERT INTO users (email,password) values('"+req.body.email+"','"+req.body.password+"')", function(err, result) {
+  connection.query("INSERT INTO users (email,password,name) values('"+req.body.email+"','"+req.body.password+"','"+req.body.name+"')", function(err, result) {
   console.log(err);
   console.log(result);
   res.redirect("/");

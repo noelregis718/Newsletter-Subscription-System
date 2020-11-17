@@ -15,7 +15,8 @@
     <thead>
       <tr>
         <th>Newsletter ID</th>
-        <th>Name</th>
+        <th>Newsletter Name</th>
+        <th>Newsletter Description</th>
       </tr>
     </thead>
   
@@ -23,7 +24,8 @@
       <% for(var i=0; i < data1.length; i++) { %>
       <tr>
         <td><%= data1[i].n_id %></td>
-        <td><%= data1[i].name %></td>
+        <td><%= data1[i].n_name %></td>
+        <td><%= data1[i].description %></td>
       </tr>
       <% } %>
     </tbody>

@@ -9,6 +9,7 @@
     <button id=bt1>Sign-out</button>
   </form>
   <div>
+    <h1 id="h2">Admin Panel</h1>
     <h1>Registered users</h1>
     <p>Total Registered users are <%= data1.length %></p>
   <form action='/sort'>
@@ -49,7 +50,7 @@
     <% for(var i=0; i < data2.length; i++) { %>
     <tr>
       <td><%= data2[i].n_id %></td>
-      <td><%= data2[i].name %></td>
+      <td><%= data2[i].n_name %></td>
       <td><%= data2[i].c %></td>
     </tr>
     <% } %>

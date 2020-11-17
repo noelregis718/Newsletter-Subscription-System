@@ -98,3 +98,10 @@ input[type=text]{
 #bt1{
   position:absolute; top:0; right:0;
 }
+
+#h1{
+  text-align: left;
+}
+#h2{
+  text-align: left;
+}
