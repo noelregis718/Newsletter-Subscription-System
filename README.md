@@ -37,8 +37,8 @@ Node.js is a free, open-sourced JavaScript run-time environment that lets develo
 
 1. Installation of all the packages need to be done before hosting the Web App. Execute the following commands:
     1. `mkdir ESS && cd ESS`
-    2. `git clone `
-    3. `cd `
+    2. `git clone https://github.com/noelregis718/newsletter-subscription-system.git`
+    3. `cd newsletter-subscription-system`
     4. `npm install`
     5. `npm run dev`
 
@@ -71,3 +71,8 @@ This project was made under the course of DBMS. The main aim of this project is 
 ![This is an image](./assets/t2.png)
 ### Table 3: SUBSCRIBER
 ![This is an image](./assets/t3.png)
+
+## Author
+**noelregis718**
+- GitHub: [@noelregis718](https://github.com/noelregis718)
+- Email: noelregis718@gmail.com

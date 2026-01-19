@@ -7,7 +7,7 @@
     "dev": "nodemon -r dotenv/config index.js",
     "start": "node index.js"
   },
-  "author": "",
+  "author": "noelregis718 <noelregis718@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.0",
