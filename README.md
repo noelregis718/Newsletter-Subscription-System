@@ -3,7 +3,6 @@ A web based software using mysql database to effectively manage newsletter subsc
 
 
 
-Due to no free hosting of mysql for longer period above website is not working.
 ## Table of Contents
 1. [Tech Stack Used](#tech-stack)
 2. [Set Up and Installation](#installation)
