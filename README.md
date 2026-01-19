@@ -2,8 +2,6 @@
 A web based software using mysql database to effectively manage newsletter subscription operations.
 
 
-https://newsletter-subscription-system.herokuapp.com/
-
 
 Due to no free hosting of mysql for longer period above website is not working.
 ## Table of Contents
